@@ -1,11 +1,11 @@
 import json
 from typing import List, Dict, Tuple, Optional
 
-INPUT_FILE = "order.json"
+INPUT_FILE = "orders.json"
 OUTPUT_FILE = "output_orders.json"
 
 def load_data(filename: str) -> List[Dict]:
-    """讀取order.json檔，如不存在則返還空列表"""
+    """讀取orders.json檔，如不存在則返還空列表"""
     try:
         with open(filename, 'r', encoding='utf-8') as file:
             return json.load(file)
@@ -13,7 +13,7 @@ def load_data(filename: str) -> List[Dict]:
         return []
 
 def save_orders(filename: str, orders: List[Dict]) -> None:
-    """儲存order.json檔"""
+    """儲存orders.json檔"""
     with open(filename, 'w', encoding='utf-8') as file:
         json.dump(orders, file, indent=4, ensure_ascii=False)
 
