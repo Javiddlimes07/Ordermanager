@@ -1,7 +1,7 @@
 import json
 from typing import List, Dict, Tuple, Optional
 
-INPUT_FILE = "orders.json"
+INPUT_FILE = "order.json"
 OUTPUT_FILE = "output_orders.json"
 
 def load_data(filename: str) -> List[Dict]:
@@ -91,7 +91,7 @@ def add_order(orders: List[Dict]) -> str:
     items = []
     
     while True:
-        item_name = input("請輸入訂單項目名稱（按空白鍵結束）：")
+        item_name = input("請輸入訂單項目名稱（輸入空白結束）：")
         if not item_name:
             break
         price = get_valid_price()
@@ -117,7 +117,7 @@ def process_order(orders: List[Dict]) -> Tuple[str, Optional[Dict]]:
     print("=" * 32)
     
     while True:
-        selection = input("請選擇要出餐的訂單編號 (輸入數字或按空白鍵 取消): ")
+        selection = input("請選擇要出餐的訂單編號 (輸入數字或按 Enter 取消): ")
         if not selection:
             return "=> 已取消出餐", None
         try:
@@ -144,7 +144,7 @@ def main():
         print("4. 離開")
         print("**********************************")
         
-        choice = input("請選擇操作項目(按空白鍵 離開)：")
+        choice = input("請選擇操作項目(按 Enter 離開)：")
         
         if not choice or choice == "4":
             break
@@ -159,6 +159,7 @@ def main():
             if not orders:
                 print("=> 目前沒有訂單！")
             else:
+                print("出餐訂單詳細資料：")
                 print_order_report(orders)
         
         elif choice == "3":
