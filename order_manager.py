@@ -135,6 +135,7 @@ def process_order(orders: List[Dict]) -> Tuple[str, Optional[Dict]]:
             print("=> 錯誤：請輸入有效的數字！")
 
 def main():
+    """主程式"""
     while True:
         print("***************選單***************")
         print("1. 新增訂單")
@@ -142,7 +143,8 @@ def main():
         print("3. 出餐處理")
         print("4. 離開")
         print("**********************************")
-        choice = input("請選擇操作項目(按空白鍵離開)：")  
+        
+        choice = input("請選擇操作項目(按空白鍵 離開)：")
         
         if not choice or choice == "4":
             break
@@ -164,8 +166,10 @@ def main():
             result, processed_order = process_order(orders)
             print(result)
             if processed_order:
-                print("出餐訂單詳細資料：")  
                 print_order_report(processed_order, "出餐訂單", True)
         
         else:
             print("=> 請輸入有效的選項（1-4）")
+
+if __name__ == "__main__":
+    main()
